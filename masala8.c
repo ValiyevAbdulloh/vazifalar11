@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    FILE *f = fopen("xaridlar.txt", "r");
+
+    if (f == NULL) {
+        printf("Fayl ochilmadi!");
+        return 1;
+    }
+
+    int summa;
+    int soni = 0;
+
+    for (int i = 0; i < 5; i++) {
+        fscanf(f, "%d", &summa);
+
+        if (summa > 50000) {
+            soni++;
+        }
+    }
+
+    fclose(f);
+
+    printf("Katta xaridlar soni: %d", soni);
+
+    return 0;
+}
